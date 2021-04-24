@@ -21,7 +21,7 @@
   (setq Dmemm (* Dme 25.4))
   (setq Dinmm (* Din 25.4))
   ;Largo de la Yee
-  (setq Largo (* Dmamm 2)
+  (setq Largo (+ (* Dmamm 2) 381)
 
   ;Largo para PintA
     (setq posPintA (/ Dmamm 2))
@@ -29,15 +29,12 @@
   ;Estos puntos van calculados de acuerto al punto P0, con coordenadas polares
     (setq p1      (polar p0       (Angu 90)    Dmamm))
     (setq pintA   (polar p0       (Angu 90)    posPintA))
-    (setq pintB   (polar pintA    (Angu 45)     Largo))
+    (setq pintB   (polar pintA    (Angu 0)     Largo))
   
   ;Aquí se dibujan las líneas
   (command "_line" p0 p1 "")
-  (command "_line" pintA pintB "")
+  ;(command "_line" posPintA pintB "")
 
-  ;Línea intermedia
-  (command "_line" pintA pintB "")
-  
       
   
 ) ;Fin del LISP
