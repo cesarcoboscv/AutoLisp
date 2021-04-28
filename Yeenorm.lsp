@@ -42,16 +42,17 @@
   
   
   ;Aquí se dibujan las líneas
-  (command "_block" "_line"  p0  p2  "")
-  (command "_line"  p3  p0  "")
-  (command "_line"  p2  p4  "")
-  (command "_line"  p4  p5  "")
-  (command "_line"  p5  p6  "")
+  ;(command "_line"  p0  p2  "")
+  ;(command "_line"  p3  p0  "")
+  ;(command "_line"  p2  p4  "")
+  ;(command "_line"  p4  p5  "")
+  :(command "_line"  p5  p6  "")
   ;Líneas angulares
+  ;(command "_line"  p3  p5  "")
+  ;(command "_line"  p0  p6  "")
+  (command "_line"  p0  p3  "")
   (command "_line"  p3  p5  "")
   (command "_line"  p0  p6  "")
- 
-  
-    
+     
   
 ) ;Fin del LISP
