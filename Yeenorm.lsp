@@ -33,26 +33,31 @@
 
   
   ;Estos puntos van calculados de acuerto al punto P0, con coordenadas polares
+  ;estos puntos son para dibujar solamente la reducción
     (setq p2      (polar  p0       (Angu 90)    largoP2))
     (setq p3      (polar  p0       (Angu 90)    Dmamm))  
     (setq p4      (polar  p2       (Angu 0)     Largo))
     (setq p5      (polar  p4       (Angu 90)    LargoP5))
     (setq p6      (polar  p5       (angu 270)   Dmemm))
     
-  
-  
+   
   ;Aquí se dibujan las líneas
-  ;(command "_line"  p0  p2  "")
-  ;(command "_line"  p3  p0  "")
-  ;(command "_line"  p2  p4  "")
-  ;(command "_line"  p4  p5  "")
-  :(command "_line"  p5  p6  "")
-  ;Líneas angulares
-  ;(command "_line"  p3  p5  "")
-  ;(command "_line"  p0  p6  "")
+  (command "_line"  p5  p6  "")
   (command "_line"  p0  p3  "")
   (command "_line"  p3  p5  "")
   (command "_line"  p0  p6  "")
      
   
 ) ;Fin del LISP
+
+;    /\___/\
+;   /       \
+;  l  u   u  l
+;--l----*----l--
+;   \   w   /     - Quack!
+;     ======
+;   /       \ __
+;   l        l\ \
+;   l        l/ /  
+;   l  l l   l /
+;   \ ml lm /_/
