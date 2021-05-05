@@ -1,25 +1,25 @@
 (defun c:Yeen ()
-  ;Borrando rastros
+  ;Deleting commands
   (setvar "cmdecho" 0)
   
-  ;Se introducen los valores iniciales de entrada para realiar cálculos
+  ;it is for inital variables for begin to calculate
   (setq Dma (getreal "Introduce el Diametro Mayor(In): "))
   (setq Dme (getreal "Introduce el Diametro Menor(In): "))
   (setq Din (getreal "Introduce el Diametro del Injerto (In): "))
   
-  ;Punto de inserción del bloque, a partir de aquí se comienza a dibujar
+  ;Insertion point, from here it starts to draw
   (setq p0 (getpoint "Punto de inserción: "))
   
 
-   ;Función para convertir angulos en radianes
+   ;Funtion for convert degrade to Radians
   (defun Angu (A)
     (* pi (/ A 180.0))
-  ) ;Aquí termina la función
+  ) ;The funtion ends here
   
  
   
  
-  ;Convirtiendo pulgadas a mm
+  ;Convirtiing Inches to mm
   (setq Dmamm (* Dma 25.4))
   (setq Dmemm (* Dme 25.4))
   (setq Dinmm (* Din 25.4))
@@ -48,6 +48,9 @@
   (command "_line"  p0  p6  "")
      
   
+    ;Aquí va el código para dibujar los injertos
+
+
 ) ;Fin del LISP
 
 ;    /\___/\
