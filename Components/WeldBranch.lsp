@@ -55,7 +55,7 @@
   ;========================
 
   ;Angle's cosine
-    (setq cosAng (cos (Angu (- 45  (- 360 (grados(angle p3 p5)))))
+    (setq cosAng (cos (Angu (- 45  (- 360 (grados(angle p3 p5)))))))
 
   ;Hypotenuse
     (setq hypo (/ (/ Dinmm 2) cosAng))
