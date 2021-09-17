@@ -1,4 +1,4 @@
-(defun c:Yeen ()
+(defun c:weld ()
   ;Deleting commands
   (setvar "cmdecho" 0)
   
