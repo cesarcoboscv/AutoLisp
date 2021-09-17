@@ -9,14 +9,12 @@
   (setq bLenght 300)
   
   ;Insertion point, from here it starts to draw
-  (setq pInitial (getpoint "Punto de inserción: "))
+  (setq pInitial (getpoint "Punto de inserciï¿½n: "))
   
-
-   ;Funtion for convert degrade to Radians
+  ;Funtion for convert degrade to Radians
   (defun Angu (A)(* pi (/ A 180.0))) ;The funtion ends here
   (defun grados (rad) (* (/ rad pi) 180.0));_fin de defun
-  
- 
+   
   ;Converting Inches to mm
   (setq Dmamm (* Dma 25.4))
   (setq Dmemm (* Dme 25.4))
@@ -27,11 +25,10 @@
   ;Setting body's inlet and outlet center
   (setq lenghtP2 (/ Dmamm 2))
   (setq lenghtP5 (/ Dmemm 2))
-  
-      
-      ;=============
-      ;Body's branch
-      ;=============
+        
+  ;=============
+  ;Body's branch
+  ;=============
  
   ;Points used for draw the body of the branch
   ;These points are calculated initializing with p0 (Point 0), with polar cordinates
@@ -89,7 +86,7 @@
   (command "_line" p14 p13 "") 
   (command "_line" p2 p4 "")
 
- ) ;LISP end
+) ;LISP end
 
 ;    /\___/\
 ;   /       \
