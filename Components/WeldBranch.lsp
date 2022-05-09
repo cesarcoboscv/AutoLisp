@@ -6,25 +6,25 @@
   (setq Dma (getreal "Introduce el Diametro Mayor(In): "))(terpri)
   (setq Dme (getreal "Introduce el Diametro Menor(In): "))(terpri)
   (setq Din (getreal "Introduce el Diametro del Injerto (In): "))(terpri)
-  (setq bLenght 300)
+  (setq branch_lenght 300)
   
   ;Insertion point, from here it starts to draw
-  (setq pInitial (getpoint "Punto de insercion: "))(terpri)
+  (setq initial_point (getpoint "Punto de insercion: "))(terpri)
   
   ;Funtion for convert degrade to Radians
   (defun rads (A)(* pi (/ A 180.0))) ;The funtion ends here
   (defun degr (rad) (* (/ rad pi) 180.0));_fin de defun
    
   ;Converting Inches to mm
-  (setq Dmamm (* Dma 25.4))
-  (setq Dmemm (* Dme 25.4))
-  (setq Dinmm (* Din 25.4))
+  (setq mayor_diam_mm (* Dma 25.4))
+  (setq menor_diam_mm (* Dme 25.4))
+  (setq branch_diam_mm (* Din 25.4))
   ;lenght of the body's branch
-  (setq lenght (+ (* Dinmm 2) 381))
+  (setq lenght (+ (* branch_diam_mm 2) 381))
 
   ;Setting body's inlet and outlet center
-  (setq lenghtP2 (/ Dmamm 2))
-  (setq lenghtP5 (/ Dmemm 2))
+  (setq lenght_point_2 (/ mayor_diam_mm 2))
+  (setq lenght_point_5 (/ menor_diam_mm 2))
 
 
   ;=============
@@ -34,53 +34,53 @@
   ;Points used for draw the body of the branch
   ;These points are calculated initializing with p0 (Point 0), with polar cordinates
 
-    (setq p2      (polar  pInitial       (rads 90)    lenghtP2))
-    (setq p3      (polar  pInitial       (rads 90)    Dmamm))  
-    (setq p4      (polar  p2       (rads 0)     lenght))
-    (setq p5      (polar  p4       (rads 90)    lenghtP5))
-    (setq p6      (polar  p5       (rads 270)   Dmemm)) 
+    (setq point_2      (polar  initial_point       (rads 90)    lenght_point_2))
+    (setq point_3      (polar  initial_point       (rads 90)    mayor_diam_mm))  
+    (setq point_4      (polar  point_2       (rads 0)     lenght))
+    (setq point_5      (polar  point_4       (rads 90)    lenght_point_5))
+    (setq point_6      (polar  point_5       (rads 270)   menor_diam_mm)) 
      
   ;setting the midpoint between branch (minor diameter) inlet  
-  ;distance between initual point divided in 2, and using the angle bewtween p3 an p5 (body's branch inclination) for get the midpoint, this is the center of the branch
-    (setq p8     (polar  p3       (angle p3 p5) (/ (distance pInitial p6) 2)))
+  ;distance between initual point divided in 2, and using the angle bewtween point_3 an point_5 (body's branch inclination) for get the midpoint, this is the center of the branch
+    (setq point_8     (polar  point_3       (angle point_3 point_5) (/ (distance initial_point point_6) 2)))
 
 
   ;========================
   ;Calculating hypotenuse
   ;========================
   ;Angle's cosine
-    (setq cosAng (cos (rads (- 45  (- 360 (degr(angle p3 p5)))))))
+    (setq cosAng (cos (rads (- 45  (- 360 (degr(angle point_3 point_5)))))))
 
   ;Hypotenuse
-    (setq hypo (/ (/ Dinmm 2) cosAng))
+    (setq hypotenuse (/ (/ branch_diam_mm 2) cosAng))
 
   ;Central point of the inlet (minor diameter) branch, this will used for the center line of the branch(minor diameter)
-    (setq pc      (polar  p2        (rads 0) (/ lenght 2)))
+    (setq mid_point      (polar  point_2        (rads 0) (/ lenght 2)))
   
   ;second hypotenuse, this is used for the center line of the branch(minor diameter)   
-    (setq hypo2 (/ (distance p8 pc) (cos (rads 45))))
+    (setq aux_hypotenuse (/ (distance point_8 mid_point) (cos (rads 45))))
 
   ;Setting the initial points of the branch (minor diameter)
-    (setq p9 (polar p8 (angle p5 p3) hypo))
-    (setq p10 (polar p8 (angle p3 p5) hypo))
-    (setq p11 (polar p10 (rads 45) bLenght))
-    (setq p12 (polar p11 (rads 135) Dinmm))
+    (setq point_9 (polar point_8 (angle point_5 point_3) hypotenuse))
+    (setq point_10 (polar point_8 (angle point_3 point_5) hypotenuse))
+    (setq point_11 (polar point_10 (rads 45) branch_lenght))
+    (setq point_12 (polar point_11 (rads 135) branch_diam_mm))
 
   ;Branch center line
-    (setq p13 (polar p11 (rads 135) (/ Dinmm 2)))
-    (setq p14 (polar p8 (rads 225) hypo2))
+    (setq point_13 (polar point_11 (rads 135) (/ branch_diam_mm 2)))
+    (setq point_14 (polar point_8 (rads 225) aux_hypotenuse))
   
                       
   ;==============
   ;Drawing branch
   ;==============
-  (command "_pline"  pInitial  p3 p9 p12 p11 p10 p5 p6 pInitial "")
+  (command "_pline"  initial_point  point_3 point_9 point_12 point_11 point_10 point_5 point_6 initial_point "")
 
                       
   ;==================
   ;Drawing centerline
   ;==================
-  (command "_line" p14 p13 "") 
-  (command "_line" p2 p4 "")
+  (command "_line" point_14 point_13 "") 
+  (command "_line" point_2 point_4 "")
 
 ) ;LISP end
