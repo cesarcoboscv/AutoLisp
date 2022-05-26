@@ -36,7 +36,7 @@
 
     (setq point_2      (polar  initial_point       (rads 90)    lenght_point_2))
     (setq point_3      (polar  initial_point       (rads 90)    mayor_diam_mm))  
-    (setq point_4      (polar  point_2       (rads 0)     lenght))
+    (setq point_4      (polar  point_2       (rads 0)     lenght ))
     (setq point_5      (polar  point_4       (rads 90)    lenght_point_5))
     (setq point_6      (polar  point_5       (rads 270)   menor_diam_mm)) 
      
