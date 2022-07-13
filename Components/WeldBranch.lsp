@@ -50,7 +50,7 @@
   ;========================
   ;Angle's cosine
     (setq cosAng (cos (rads (- 45  (- 360 (degr(angle point_3 point_5)))))))
-
+1
   ;Hypotenuse
     (setq hypotenuse (/ (/ branch_diam_mm 2) cosAng))
 
@@ -83,4 +83,6 @@
   (command "_line" point_14 point_13 "") 
   (command "_line" point_2 point_4 "")
 
+  ;Alert Message
+  ; (alert "Done")
 ) ;LISP end
