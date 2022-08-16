@@ -1,4 +1,4 @@
-(defun c:weld ()
+(defun c:welded ()
   ;Deleting commands
   (setvar "cmdecho" 0)
   
@@ -44,13 +44,11 @@
   ;distance between initual point divided in 2, and using the angle bewtween point_3 an point_5 (body's branch inclination) for get the midpoint, this is the center of the branch
     (setq point_8     (polar  point_3       (angle point_3 point_5) (/ (distance initial_point point_6) 2)))
 
-
   ;========================
   ;Calculating hypotenuse
   ;========================
   ;Angle's cosine
     (setq cosAng (cos (rads (- 45  (- 360 (degr(angle point_3 point_5)))))))
-1
   ;Hypotenuse
     (setq hypotenuse (/ (/ branch_diam_mm 2) cosAng))
 
@@ -63,7 +61,7 @@
   ;Setting the initial points of the branch (minor diameter)
     (setq point_9 (polar point_8 (angle point_5 point_3) hypotenuse))
     (setq point_10 (polar point_8 (angle point_3 point_5) hypotenuse))
-    (setq point_11 (polar point_10 (rads 45) branch_lenght))
+    (setq point_11 (polar point_10 (rads 45) branch_diam_mm))
     (setq point_12 (polar point_11 (rads 135) branch_diam_mm))
 
   ;Branch center line
