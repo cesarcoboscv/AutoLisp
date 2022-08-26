@@ -40,12 +40,10 @@
   
   (setq branch_center_2 (polar point_3 (rads 315) (/ branch_diam_mm 2)))
   
-
   (setq lenght_6 (+ lenght_4  (/ mayor_diam_mm 2)))
   (setq lenght_5 (sqrt ( expt (* 2 lenght_6) 2)  ))
 
   (setq branch_center_1 (polar branch_center_2 (rads 225) lenght_5))
-
 
   
   (command "_line" point_1 point_2 "")
@@ -55,7 +53,6 @@
   (command "_line" point_5 point_6 "")
   (command "_line" initial_point mid_point "")
 
-  
 
   (command "_line" point_1 point_10 "")
   (command "_line" point_10 point_9 "")
