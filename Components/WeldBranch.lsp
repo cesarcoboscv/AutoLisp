@@ -80,7 +80,15 @@
   ;==================
   (command "_line" point_14 point_13 "") 
   (command "_line" point_2 point_4 "")
-
+  
+  (setq blockName (getstring "Escribe el nombre del bloque"))(terpri)
+  (command "_block" blockName)(terpri)
+  ; (terpri)
+  ; (terpri)
+  ; (setq str "El bloque está listo")
+  ; (print str)
+  ; (setq inB (getpoint "Haz clic para insertar el bloque"))(terpri)
+  ; (command "-insert" blockName (getpoint "Haz clic para insertar"))
   ;Alert Message
-  ; (alert "Done")
+  ;(alert "Done")
 ) ;LISP end
