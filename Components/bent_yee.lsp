@@ -63,4 +63,7 @@
 
   (command "_line" branch_center_1 branch_center_2 "")
   
+  (setq blockName (getstring "Escribe el nombre del bloque"))(terpri)
+  (command "_block" blockName)(terpri)
+  
 ) ; lisp ends
