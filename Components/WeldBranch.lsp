@@ -1,4 +1,4 @@
-(defun c:welded ()
+(defun c:welin ()
   ;Deleting commands
   (setvar "cmdecho" 0)
   
@@ -20,7 +20,7 @@
   (setq menor_diam_mm (* Dme 25.4))
   (setq branch_diam_mm (* Din 25.4))
   ;lenght of the body's branch
-  (setq lenght (+ (* branch_diam_mm 2) 381))
+  (setq lenght (+ (* branch_diam_mm 2) 254))
 
   ;Setting body's inlet and outlet center
   (setq lenght_point_2 (/ mayor_diam_mm 2))

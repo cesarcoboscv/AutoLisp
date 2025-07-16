@@ -1,4 +1,4 @@
-(defun c:welcopy()
+(defun c:welmm()
   ;Deleting commands
   (setvar "cmdecho" 0)
   
